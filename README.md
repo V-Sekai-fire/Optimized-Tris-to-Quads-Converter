@@ -4,9 +4,13 @@
 
 **Optimized Tris to Quads Converter** is a Blender add-on that converts triangles (tris) in a mesh to quadrilaterals (quads) using mathematical optimization. This approach ensures the most optimal conversion of tris to quads, resulting in cleaner and more efficient mesh topology.
 
+## Compatibility
+
+- Tested with **Blender 5.0**, should work with 4.2 and up.
+
 ## Prerequisite
 
-To use this add-on, you need to have the Pulp optimization library installed. The add-on provides an option to install Pulp directly from the preferences.
+This add-on requires the **PuLP** optimization library. The add-on provides a one-click installation option in the preferences panel.
 
 ## Comparison of Topology
 
@@ -28,39 +32,65 @@ As illustrated in the comparison images, the optimized converter maintains bette
 
 ## Features
 
-- Converts selected tris in a mesh to quads using the Pulp optimization library.
-- Ensures cleaner and more efficient mesh topology.
-- Simple and user-friendly interface with an easy-to-use operator.
+- Converts selected tris in a mesh to quads using the PuLP optimization library
+- Ensures cleaner and more efficient mesh topology
+- Simple and user-friendly interface with an easy-to-use operator
 
 ## Installation
 
-1. Download the ZIP file containing the `__init__.py` script and other necessary files.
-2. Open Blender and go to `Edit > Preferences > Add-ons`.
-3. Click `Install` and select the downloaded ZIP file.
-4. Enable the add-on from the list.
+### Method 1: As an Extension
+
+1. Download or clone this repository
+2. Open Blender and go to `Edit > Preferences > Get Extensions`
+3. Click the dropdown arrow and select `Install from Disk...`
+4. Navigate to and select the `tris_to_quads` folder (or a `.zip` of it)
+5. Enable the extension
 
 ## Usage
 
-### Installing Pulp
+### Installing PuLP
 
-The add-on requires the Pulp optimization library. You can install it directly from the add-on preferences:
+The add-on requires the PuLP optimization library. Install it directly from the add-on preferences:
 
-1. Go to `Edit > Preferences > Add-ons`.
-2. Find the **Optimized Tris to Quads Converter** add-on in the list.
-3. If Pulp is not already installed, click the `Install Pulp` button.
-4. If Pulp is installed, it will display "Pulp is installed".
+1. Go to `Edit > Preferences > Add-ons` (or `Get Extensions` in Blender 4.2+)
+2. Find the **Optimized Tris to Quads Converter** in the list and expand it
+3. If PuLP is not installed, click the `Install PuLP` button
+4. Wait for the installation to complete (runs in background)
+5. If the import still fails after installation, restart Blender once
+
+Once installed, the preferences will show "PuLP is installed" with the version number.
 
 ### Converting Tris to Quads
 
-1. Enter `Edit Mode` and select the faces you want to convert.
-2. In the 3D Viewport, go to `Face > Optimized Tris to Quads Converter`.
-3. The selected tris will be converted to quads using mathematical optimization.
+1. Select a mesh object and enter `Edit Mode`
+2. Select the triangular faces you want to convert
+3. In the 3D Viewport menu, go to `Face > Optimized Tris to Quads`
+4. The selected tris will be converted to quads using mathematical optimization
 
 ## Why Use This Add-on?
 
-- **Optimization**: Uses advanced mathematical optimization to ensure the best possible conversion of tris to quads.
-- **Clean Topology**: Results in cleaner and more efficient mesh topology, which is beneficial for modeling, animation, and simulation.
-- **Ease of Use**: Simple interface integrated directly into Blender's editing workflow.
+- **Optimization**: Uses Integer Linear Programming (ILP) to find the mathematically optimal edge dissolutions
+- **Clean Topology**: Results in cleaner and more efficient mesh topology, beneficial for modeling, animation, and simulation
+- **Ease of Use**: Simple interface integrated directly into Blender's Face menu
+- **Modern Compatibility**: Updated for Blender 5.0 and the new Extensions system
+
+## Troubleshooting
+
+### PuLP won't import after installation
+- Restart Blender after installing PuLP
+- Check that your system has internet access during installation
+
+### Installation button is grayed out
+- An installation is already in progress; wait for it to complete
+
+### "Select exactly one mesh object" error
+- Make sure only one mesh object is selected before running the operator
+
+## Files
+
+- `__init__.py` - Main add-on code
+- `blender_manifest.toml` - Extension manifest for Blender 4.2+ (optional for legacy installation)
+- `README.md` - This file
 
 ## Credits
 
@@ -69,15 +99,15 @@ The add-on requires the Pulp optimization library. You can install it directly f
 
 ### Acknowledgement to the Original Author
 
-This add-on is based on the original work of Tsutomu Saito. In his article on Qiita, Tsutomu Saito describes the development process and the motivation behind the "Tris to Quads Ex" add-on for Blender. The article explains how the add-on uses the Pulp optimization library to convert tris to quads, ensuring a more efficient and cleaner mesh topology.
+This add-on is based on the original work of Tsutomu Saito. In his article on Qiita, Tsutomu Saito describes the development process and the motivation behind the "Tris to Quads Ex" add-on for Blender. The article explains how the add-on uses the PuLP optimization library to convert tris to quads, ensuring a more efficient and cleaner mesh topology.
 
 Tsutomu Saito's work focused on addressing the limitations of Blender's default tris-to-quads conversion tool. By leveraging mathematical optimization, the "Tris to Quads Ex" add-on produces superior results, making it an invaluable tool for Blender users aiming for high-quality 3D models.
 
 The original article provides a detailed explanation of the methodology and implementation, including:
-- The motivation for creating the add-on.
-- The mathematical principles behind the optimization process.
-- Step-by-step instructions on how to use the add-on.
+- The motivation for creating the add-on
+- The mathematical principles behind the optimization process
+- Step-by-step instructions on how to use the add-on
 
 Tsutomu Saito's innovative approach has significantly improved the tris-to-quads conversion process, and this improved version builds upon his foundation. We are grateful for his contributions to the Blender community.
 
-[Read the original article on Qiita](https://qiita.com/SaitoTsutomu/items/b608c80d70a54718ec78).
+[Read the original article on Qiita](https://qiita.com/SaitoTsutomu/items/b608c80d70a54718ec78)
