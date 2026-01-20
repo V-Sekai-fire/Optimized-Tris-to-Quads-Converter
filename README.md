@@ -38,12 +38,10 @@ As illustrated in the comparison images, the optimized converter maintains bette
 
 ## Installation
 
-### Method 1: As an Extension
-
 1. Download or clone this repository
 2. Open Blender and go to `Edit > Preferences > Get Extensions`
 3. Click the dropdown arrow and select `Install from Disk...`
-4. Navigate to and select the `tris_to_quads` folder (or a `.zip` of it)
+4. Navigate to and select the `Optimized-Tris-to-Quads-Converter.zip`
 5. Enable the extension
 
 ## Usage
