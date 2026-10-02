@@ -3,6 +3,10 @@ name: Build Blender Addon
 on:
   workflow_dispatch: # Allows manual trigger of the action
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   build-addon:
     runs-on: ubuntu-latest
